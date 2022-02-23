@@ -9,9 +9,13 @@ class Product extends Model
 {
     use HasFactory;
 
+    const PUBLISHED = 2;
+    const DRASHED = 1;
+
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function brand(){
+    public function brand()
+    {
 
         return $this->belongsTo(Brand::class);
     }
@@ -23,7 +27,7 @@ class Product extends Model
 
     public function colors()
     {
-        return $this->hasMany(Color::class);
+        return $this->belongsToMany(Color::class);
     }
 
     public function sizes()

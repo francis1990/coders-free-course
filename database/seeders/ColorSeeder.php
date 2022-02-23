@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Color;
 use Illuminate\Database\Seeder;
 
 class ColorSeeder extends Seeder
@@ -14,6 +14,12 @@ class ColorSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $colors = ['white', 'blue', 'red', 'black'];
+
+        foreach ($colors as $color) {
+            Color::create([
+                'name' => $color,
+            ]);
+        }
     }
 }
